@@ -1,0 +1,18 @@
+    def composer(self, theme_ly):
+        sujet = self.parse_ly(theme_ly)
+        fonctions = [self.transposition, self.augmentation, self.diminution,
+                     self.inversion, self.retrograde, self.hauteurs_retrogrades, 
+                     self.durees_retrogrades]
+
+        # Longueur aléatoire : entre 20 et 40 blocs de transformations
+        longueur = random.randint(20, 40)
+        partition = []
+
+        print(f"Génération d'une partition de {longueur} séquences...")
+
+        for _ in range(longueur):
+            # On choisit une transformation au hasard
+            transf = random.choice(fonctions)
+            # On applique la transformation sur le sujet
+            sequence = transf(sujet)
+
